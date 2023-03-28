@@ -1,37 +1,66 @@
 #include "../include/headerA3.h"
 
-void recruitEmployee (struct employee ** headLL){
-    // Allocate memory for a new employee struct
+void recruitEmployee(struct employee **headLL) {
+    // create new employee node
     struct employee *newEmployee = malloc(sizeof(struct employee));
 
-    // Check if the memory was allocated successfully
-    if (newEmployee == NULL) {
-        printf("Failed to allocate memory for new employee.\n");
-        exit(0);
-    }
-
-    // User inputs information about the new employee
-    printf("Enter employee's first name: ");
+    // get first name and last name from user input
+    printf("Enter the first name of the employee: ");
     scanf("%s", newEmployee->fname);
-    printf("Enter employee's last name: ");
+    printf("Enter the last name of the employee: ");
     scanf("%s", newEmployee->lname);
 
-    // New empId = the total employees + 1
-    newEmployee->empId = countEmployees(*headLL) + 1;
+    // get dependent names from user input
+    int numDependents = 0;
+    char dependentName[MAX_LENGTH];
+    do {
+        printf("Enter name of dependent# %d: ", numDependents + 1);
+        scanf("%s", dependentName);
+        newEmployee->dependents = realloc(newEmployee->dependents, sizeof(char*) * (numDependents + 1));
+        newEmployee->dependents[numDependents] = malloc(sizeof(char) * MAX_LENGTH);
+        strcpy(newEmployee->dependents[numDependents], dependentName);
+        numDependents++;
+        // ask user if there are more dependents
+        char moreDependents;
+        printf("Do you have any more dependents? ");
+        scanf(" %c", &moreDependents);
+        moreDependents = toupper(moreDependents);
+        if (moreDependents == 'N') {
+            break;
+        }
+    } while (1);
+    newEmployee->numDependents = numDependents;
 
-    // Ask user for the num of dependents + their info
-    printf("Enter the number of dependents: ");
-    scanf("%d", &newEmployee->numDependents);
-    newEmployee->dependents = malloc(sizeof(char*) * newEmployee->numDependents);
-    // Ask name of each dependent
-    for (int i = 0; i < newEmployee->numDependents; i++) {
-        printf("Enter name of dependent %d: ", i+1);
-        char *dependent = malloc(sizeof(char) * MAX_LENGTH);
-        scanf("%s", dependent);
-        newEmployee->dependents[i] = dependent;
+    // generate empId based on first and last name
+    int sum = 0;
+    for (int i = 0; i < strlen(newEmployee->fname); i++) {
+        sum += newEmployee->fname[i];
+    }
+    int empId = sum + strlen(newEmployee->lname);
+    // check if empId already exists in linked list and generate new one if needed
+    struct employee *currentEmployee = *headLL;
+    while (currentEmployee != NULL) {
+        if (currentEmployee->empId == empId) {
+            empId += rand() % 999 + 1;
+            currentEmployee = *headLL;
+        } else {
+            currentEmployee = currentEmployee->nextEmployee;
+        }
+    }
+    newEmployee->empId = empId;
+
+    // add new employee node to end of linked list
+    newEmployee->nextEmployee = NULL;
+    if (*headLL == NULL) {
+        *headLL = newEmployee;
+    } else {
+        struct employee *lastEmployee = *headLL;
+        while (lastEmployee->nextEmployee != NULL) {
+            lastEmployee = lastEmployee->nextEmployee;
+        }
+        lastEmployee->nextEmployee = newEmployee;
     }
 
-    // The nextEmployee pointer = the head of the linked list
-    newEmployee->nextEmployee = *headLL;
-    *headLL = newEmployee;
+    printf("You have %d dependents.\n", numDependents);
+    printf("Your computer-generated empId is %d\n", empId);
 }
