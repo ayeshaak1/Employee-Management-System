@@ -1,4 +1,4 @@
-proFile: src/recruitEmployee.o src/printAll.o src/printOne.o src/lookOnId.o src/lookOnFullName.o src/swapEmployees.o src/sortEmployeesId.o src/helperA3.o src/countEmployees.o src/fireAll.o src/fireOne.o
+bin/proFile: src/recruitEmployee.o src/printAll.o src/printOne.o src/lookOnId.o src/lookOnFullName.o src/swapEmployees.o src/sortEmployeesId.o src/helperA3.o src/countEmployees.o src/fireAll.o src/fireOne.o
 	gcc -std=c99 -Wall src/recruitEmployee.o src/printAll.o src/printOne.o src/lookOnId.o src/lookOnFullName.o src/swapEmployees.o src/sortEmployeesId.o src/helperA3.o src/countEmployees.o src/fireAll.o src/fireOne.o -o bin/proFile
 
 src/recruitEmployee.o: src/recruitEmployee.c include/headerA3.h
