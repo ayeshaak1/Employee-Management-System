@@ -1,5 +1,5 @@
-bin/proFile: src/recruitEmployee.o src/printAll.o src/printOne.o src/lookOnId.o src/lookOnFullName.o src/swapEmployees.o src/sortEmployeesId.o src/helperA3.o src/countEmployees.o src/fireAll.o src/fireOne.o
-	gcc -std=c99 -Wall src/recruitEmployee.o src/printAll.o src/printOne.o src/lookOnId.o src/lookOnFullName.o src/swapEmployees.o src/sortEmployeesId.o src/helperA3.o src/countEmployees.o src/fireAll.o src/fireOne.o -o bin/proFile
+proFile: src/recruitEmployee.o src/printAll.o src/printOne.o src/lookOnId.o src/lookOnFullName.o src/swapEmployees.o src/sortEmployeesId.o src/helperA3.o src/countEmployees.o src/fireAll.o src/fireOne.o src/mainA3.o
+	gcc -std=c99 -Wall src/recruitEmployee.o src/printAll.o src/printOne.o src/lookOnId.o src/lookOnFullName.o src/swapEmployees.o src/sortEmployeesId.o src/helperA3.o src/countEmployees.o src/fireAll.o src/fireOne.o src/mainA3.o -o bin/proFile
 
 src/recruitEmployee.o: src/recruitEmployee.c include/headerA3.h
 	gcc -std=c99 -Wall -c src/recruitEmployee.c -o src/recruitEmployee.o
@@ -33,6 +33,9 @@ src/fireAll.o: src/fireAll.c include/headerA3.h
 
 src/fireOne.o: src/fireOne.c include/headerA3.h
 	gcc -std=c99 -Wall -c src/fireOne.c -o src/fireOne.o
+
+src/mainA3.o: src/mainA3.c include/headerA3.h
+	gcc -std=c99 -Wall -c src/mainA3.c -o src/mainA3.o
 
 clean:
 	rm src/*.o proFile
