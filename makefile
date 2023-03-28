@@ -19,8 +19,8 @@ src/lookOnFullName.o: src/lookOnFullName.c include/headerA3.h
 src/sortEmployeesId.o: src/sortEmployeesId.c include/headerA3.h
 	gcc -std=c99 -Wall -c src/sortEmployeesId.c -o src/sortEmployeesId.o
 
-src/loadEmpData.o: src/loadEmpData.c include/headerA3.h
-	gcc -std=c99 -Wall -c src/loadEmpData.c -o src/loadEmpData.o
+src/helperA3.c.o: src/helperA3.c include/headerA3.h
+	gcc -std=c99 -Wall -c src/helperA3.c -o src/helperA3.o
 
 src/countEmployees.o: src/countEmployees.c include/headerA3.h
 	gcc -std=c99 -Wall -c src/countEmployees.c -o src/countEmployees.o

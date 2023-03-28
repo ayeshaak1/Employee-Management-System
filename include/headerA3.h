@@ -1,7 +1,7 @@
 /*
-Student Name: Firstname Lastname
-Student ID: #######
-Due Date: Mon Day, Year
+Student Name: Ayesha Khan
+Student ID: 1226430
+Due Date: March 31, 2023
 Course: CIS*2500
 I have exclusive control over this submission via my password.
 By including this header comment, I certify that:
