@@ -49,3 +49,5 @@ int countEmployees (a3Emp * headLL);
 
 void fireAll (a3Emp ** headLL);
 void fireOne (a3Emp ** headLL, int whichOne);
+
+void swapEmployees(struct employee *emp1, struct employee *emp2);
