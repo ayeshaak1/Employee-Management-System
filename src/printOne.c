@@ -18,12 +18,15 @@ void printOne (struct employee * headLL, int whichOne){
     }
 
     // Print the details of the employee
-    printf("Employee #%d:\n", whichOne);
-    printf("ID: %d\n", current->empId);
-    printf("Name: %s %s\n", current->fname, current->lname);
-    printf("Number of Dependents: %d\n", current->numDependents);
-    printf("Dependents:\n");
+    printf("Employee ID: %d\n", current->empId);
+    printf("First name: %s\n", current->fname);
+    printf("Last name: %s\n", current->lname);
+    printf("Dependents:");
     for (int j = 0; j < current->numDependents; j++) {
-        printf("%d. %s\n", j+1, current->dependents[j]);
+        printf(" %s", current->dependents[j]);
+        // Don't print ',' for last dependent
+        if (j != current->numDependents-1){
+          printf(",");
+        }
     }
 }
