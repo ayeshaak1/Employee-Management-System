@@ -24,9 +24,13 @@ void printOne (struct employee * headLL, int whichOne){
     printf("Dependents:");
     for (int j = 0; j < current->numDependents; j++) {
         printf(" %s", current->dependents[j]);
+        if (j == current->numDependents-2){
+          printf(" and");
+        }
         // Don't print ',' for last dependent
-        if (j != current->numDependents-1){
+        else if (j != current->numDependents-1){
           printf(",");
         }
+
     }
 }
