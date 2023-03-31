@@ -9,12 +9,12 @@ void printAll(struct employee* headLL) {
         numEmp++;
         printf("Employee # %d:\n", numEmp);
 
-        printf("Employee id: %d\n", current->empId);
+        printf("\tEmployee id: %d\n", current->empId);
 
-        printf("First name: %s\n", current->fname);
-        printf("Last name: %s\n", current->lname);
-        
-        printf("Dependents [%d]: ", current->numDependents);
+        printf("\tFirst name: %s\n", current->fname);
+        printf("\tLast name: %s\n", current->lname);
+
+        printf("\tDependents [%d]: ", current->numDependents);
         for (int i = 0; i < current->numDependents; i++) {
             printf("%s", current->dependents[i]);
             if (i != current->numDependents - 1) {
