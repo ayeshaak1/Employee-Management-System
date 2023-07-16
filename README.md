@@ -46,3 +46,47 @@ Use the following command to compile the program:
 
 ```bash
 gcc -o employee_management main.c
+```
+
+## Usage
+
+### Recruit Employee
+
+The function `recruitEmployee()` allows you to recruit a new employee by providing their first name, last name, and the number of dependents.
+
+### Print All Employees
+
+The function `printAll()` prints the details of all employees currently in the system.
+
+### Print One Employee
+
+The function `printOne()` prints the details of a specific employee based on their position in the linked list.
+
+### Search by Employee ID
+
+The function `lookOnId()` allows you to search for an employee by their employee ID.
+
+### Search by Full Name
+
+The function `lookOnFullName()` allows you to search for an employee by their full name.
+
+### Sort Employees by ID
+
+The function `sortEmployeesId()` sorts the employees in ascending order based on their employee ID.
+
+### Load Employee Data
+
+The function `loadEmpData()` allows you to load employee data from a file to populate the linked list.
+
+### Count Employees
+
+The function `countEmployees()` counts the total number of employees currently in the system.
+
+### Fire All Employees
+
+The function `fireAll()` fires all employees, clearing the linked list and releasing memory.
+
+### Fire One Employee
+
+The function `fireOne()` allows you to fire a specific employee based on their position in the linked list.
+
