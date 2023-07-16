@@ -18,8 +18,6 @@ This repository contains a C program implementing an Employee Management System.
   - [Count Employees](#count-employees)
   - [Fire All Employees](#fire-all-employees)
   - [Fire One Employee](#fire-one-employee)
-- [Contributing](#contributing)
-- [License](#license)
 
 ## Features
 
